@@ -29,7 +29,7 @@ func main() {
 	}
 
 	newProduct := Product{Name: "Iphone 13 pro max", Price: 99999}
-	db.Create(&newProduct)
+	//db.Create(&newProduct)
 
 	fmt.Println(newProduct)
 
@@ -44,4 +44,10 @@ func main() {
 	db.Where("id = 1").First(&product)
 
 	fmt.Println(product)
+
+	//db.Table(Product{}.TableName()).Where("id = 47").Delete(nil)
+
+	db.Table(Product{}.TableName()).Where("id = 48").Updates(map[string]interface{}{
+		"name": "Galaxy note 20 ultra",
+	})
 }
